@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import './App.css';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import Home from './Hello/Home';
 import Modal from './Hello/Modal';
 import About from './Hello/About';
 import Contact from './Hello/Contact';
 import Blog from './Hello/Blog';
+import Cart from './Component/Cart';
 import ReactTypingEffect from 'react-typing-effect';
 
 function App() {
@@ -28,10 +30,10 @@ function App() {
                     <Route path='/blog' component={Blog} />
                     <Route path='/modal' component={Modal} />
                     <Route path='/contact' component={Contact} />
+                    <Route path='/shoppingCart' component={Cart} />
                 </Switch>
             </div>
         </Router>
     );
 }
-
 export default App;
