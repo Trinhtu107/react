@@ -1,8 +1,8 @@
 import {
-    ADD_TO_CART ,
-    REMOVE_FROM_CART ,
-    UPDATE_QUANTITY ,
-    SUB_QUANTITY ,
+    ADD_TO_CART,
+    REMOVE_FROM_CART,
+    UPDATE_QUANTITY,
+    SUB_QUANTITY,
     EMPTY_CART
 } from './constants'
 
@@ -16,7 +16,15 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 products: state.products.map(product =>
-                    product.id === action.id ? {...product, selected: true,quantity: product.quantity >= 0 ? product.quantity + 1 :1} : product,
+                    product.id === action.id
+                        ? {
+                            ...product,
+                            selected: true,
+                            quantity: product.quantity >= 0 ? product.quantity + 1 : 1,
+                            inventory: product.inventory - 1,
+                            stock: product.inventory + product.quantity
+                        }
+                        : product,
                 ),
             };
         case REMOVE_FROM_CART:
@@ -24,17 +32,20 @@ export default (state = initialState, action) => {
                 ...state,
                 products: state.products.map(product =>
                     product.id === action.id
-                        ? {...product, selected: false, quantity: 0}
+                        ? {...product, selected: false, quantity: 0,inventory: product.stock }
                         : product,
                 ),
             };
         case UPDATE_QUANTITY:
-            console.log(state.products);
             return {
                 ...state,
                 products: state.products.map(product =>
                     product.id === action.id
-                        ? {...product, quantity: action.qty}
+                        ? {
+                            ...product,
+                            quantity: action.qty,
+                            inventory: product.stock - action.qty
+                        }
                         : product,
                 ),
             };

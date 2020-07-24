@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import './App.css';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
 import Home from './Hello/Home';
 import Modal from './Hello/Modal';
 import About from './Hello/About';
@@ -13,9 +13,9 @@ function App() {
     return (
         <Router>
             <div className="container">
-                <h2><ReactTypingEffect text={"Hello cac ban ahiii!!!!!!!!!!!!!"} /></h2>
+                <h2><ReactTypingEffect text={"Hello cac ban ahiii!!!!!!!!!!!!!"}/></h2>
                 <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                    <ul className="navbar-nav mr-auto" >
+                    <ul className="navbar-nav mr-auto">
                         <li><Link to={'/'} className="nav-link"> Home </Link></li>
                         <li><Link to={'/about'} className="nav-link">About</Link></li>
                         <li><Link to={'/blog'} className="nav-link">Blog</Link></li>
@@ -23,17 +23,18 @@ function App() {
                         <li><Link to={'/contact'} className="nav-link">Contact</Link></li>
                     </ul>
                 </nav>
-                <hr />
+                <hr/>
                 <Switch>
-                    <Route exact path='/' component={Home} />
-                    <Route path='/about' component={About} />
-                    <Route path='/blog' component={Blog} />
-                    <Route path='/modal' component={Modal} />
-                    <Route path='/contact' component={Contact} />
-                    <Route path='/shoppingCart' component={Cart} />
+                    <Route exact path='/' children={() => (<Home/>)}/>
+                    <Route path='/about' component={About}/>
+                    <Route path='/blog' component={Blog}/>
+                    <Route path='/modal' component={Modal}/>
+                    <Route path='/contact' component={Contact}/>
+                    <Route path='/shoppingCart' component={Cart}/>
                 </Switch>
             </div>
         </Router>
     );
 }
+
 export default App;
