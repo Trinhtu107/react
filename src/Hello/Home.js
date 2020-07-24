@@ -91,7 +91,7 @@ function Home({addToCartActions, cart}) {
                 </div>
             );
         }
-    }) : <h1>Loading posts...</h1>;
+    }) : <h1>Loading cart...</h1>;
 
     return (
         <div>
