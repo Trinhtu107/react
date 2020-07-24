@@ -22,7 +22,8 @@ export const removeFromCart = id => {
 };
 export const updatequantity = data => {
     let id  = data.id;
-    let qty = data.qty;
+    let qty = Number(data.qty);
+
     return {
         type: UPDATE_QUANTITY,
         id,
