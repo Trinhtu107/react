@@ -70,7 +70,6 @@ function Modals(){
 
 function Webshow(data) {
     const [datanew] = data.data;
-    console.log(datanew);
         return(
             <div >
                 <li>{datanew.name}</li>

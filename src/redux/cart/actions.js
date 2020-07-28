@@ -8,7 +8,6 @@ import {
 
 
 export const addToCart = (id) => {
-    console.log(id);
     return {
         type: ADD_TO_CART,
         id,

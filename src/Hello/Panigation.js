@@ -13,16 +13,13 @@ const Listing = () => {
 
     const renderPost = posts.length > 0 ? posts.map((item, index) => {
         if( activePage == 1 && item.id < 10) {
-            console.log(activePage);
             return (<h3>{item.title}</h3>);
         }
         if(activePage > 1 && item.id > (activePage-1)*10 && item.id < activePage*10){
-            console.log("page",activePage -1);
             return (<h3>{item.id}</h3>);
         }
     }) :  <h1>Loading posts...</h1>;
     const handlePageChange = (pageNumber) =>  {
-        console.log(`active page is ${pageNumber}`);
         setActivePage(pageNumber);
     };
     return (

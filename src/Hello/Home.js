@@ -3,18 +3,7 @@ import Pagination from "react-js-pagination";
 import {connect} from 'react-redux';
 import {addToCart} from "../redux/cart/actions";
 import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
-
-const mystyle = {
-    textDecoration: "none",
-    float: "left",
-    listStyleType: "none",
-    border: ".1px dotted gray",
-    borderRadius: "5px",
-    padding: "5px",
-    margin: "5px",
-    height: "355px",
-    width: "210px"
-};
+import  '../css/style.css';
 
 function Home({addToCartActions, cart}) {
     const [activePage, setActivePage] = useState(1);
@@ -23,7 +12,6 @@ function Home({addToCartActions, cart}) {
         setActivePage(pageNumber);
     };
     const itemOnCart = (data) => {
-        console.log(cart.products);
 
         var count = 0;
         if (data.products.length > 0) {
@@ -41,7 +29,7 @@ function Home({addToCartActions, cart}) {
             return (
                 <div className="content" key={item.id.toString()}>
                     <div key={item.id}>
-                        <ul className="col-sm-3" style={mystyle}>
+                        <ul className="col-sm-3 list" >
                             <a href="">
                                 <li><img src={item.imgUrl} alt="" width="100" height="200"/></li>
                                 <hr/>
@@ -68,7 +56,7 @@ function Home({addToCartActions, cart}) {
             return (
                 <div className="content" key={item.id.toString()}>
                     <div>
-                        <ul className="col-sm-3" style={mystyle}>
+                        <ul className="col-sm-3 list">
                             <a href="">
                                 <li><img src={item.imgUrl} alt="" width="100" height="200"/></li>
                                 <hr/>
@@ -99,16 +87,7 @@ function Home({addToCartActions, cart}) {
                 <h1>This is Home Page</h1>
             </div>
 
-                <div style={{
-                    float: "right",
-                    width: "150px",
-                    height: "40px",
-                    lineHeight: "40px",
-                    textAlign: "center",
-                    borderRadius: "10px",
-                    backgroundColor: "gray",
-                    color: "white"
-                }}>
+                <div className="cart">
                     <Link to="/shoppingCart" style={{color: "white"}} >
                         <span>Gio hang ({itemOnCart(cart)})</span>
                     </Link>
